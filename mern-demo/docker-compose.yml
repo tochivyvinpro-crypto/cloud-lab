@@ -1,24 +1,14 @@
 version: '3.8'
 
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mern-db
-    ports:
-      - "27017:27017"
-    volumes:
-      - dbdata:/data/db
-
   backend:
     build: ./server
     container_name: mern-backend
     ports:
       - "5000:5000"
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/mern-demo
+      - MONGO_URI=mongodb+srv://cloud_lab_user:thaisang@cluster0.msban3h.mongodb.net/mern-demo?retryWrites=true&w=all
       - PORT=5000
-    depends_on:
-      - mongodb
 
   frontend:
     build: ./client
@@ -27,6 +17,3 @@ services:
       - "5173:5173"
     depends_on:
       - backend
-
-volumes:
-  dbdata:
