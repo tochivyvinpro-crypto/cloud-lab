@@ -78,7 +78,7 @@ function App() {
 
   return (
     <div style={{ padding: '30px', fontFamily: 'Arial, sans-serif', maxWidth: '650px', margin: '0 auto' }}>
-      <h2>Quản Lý Sinh Viên (MERN Stack)</h2>
+      <h2>Quản Lý Sinh Viên - Lab Docker Hub</h2>
       {error && <p role="alert" style={{ color: '#b42318' }}>{error}</p>}
       
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>

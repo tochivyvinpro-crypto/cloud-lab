@@ -1,25 +1,17 @@
-version: '3.8'
-
 services:
   backend:
-    build: ./server
+    image: chivi1212/mern-backend:1.0
     container_name: mern-backend
-    dns:
-      - 168.63.129.16
-      - 8.8.8.8
-    extra_hosts:
-      - "ac-hu77k9p-shard-00-00.09dde3i.mongodb.net:159.143.61.80"
-      - "ac-hu77k9p-shard-00-01.09dde3i.mongodb.net:159.143.61.94"
-      - "ac-hu77k9p-shard-00-02.09dde3i.mongodb.net:159.143.61.106"
-    ports:
-      - "5000:5000"
+    network_mode: host
     environment:
       MONGODB_URI: mongodb://tochivyvinpro_db_user:chivi1122@ac-hu77k9p-shard-00-00.09dde3i.mongodb.net:27017,ac-hu77k9p-shard-00-01.09dde3i.mongodb.net:27017,ac-hu77k9p-shard-00-02.09dde3i.mongodb.net:27017/mern-demo?ssl=true&replicaSet=atlas-y9nwuu-shard-0&authSource=admin&appName=Cluster0
       PORT: 5000
 
   frontend:
-    build: ./client
+    image: chivi1212/mern-frontend:2.0
     container_name: mern-frontend
+    extra_hosts:
+      - "backend:host-gateway"
     ports:
       - "5173:5173"
     depends_on:

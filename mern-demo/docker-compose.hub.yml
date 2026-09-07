@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   backend:
-    build: ./server
+    image: chivi1212/mern-backend:1.0
     container_name: mern-backend
     dns:
       - 168.63.129.16
@@ -18,7 +16,7 @@ services:
       PORT: 5000
 
   frontend:
-    build: ./client
+    image: chivi1212/mern-frontend:1.0
     container_name: mern-frontend
     ports:
       - "5173:5173"
